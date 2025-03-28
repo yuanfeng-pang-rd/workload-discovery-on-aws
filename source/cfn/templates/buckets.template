@@ -52,10 +52,6 @@ Resources:
             reason: This bucket will contain access logs for all buckets
     Properties:
       AccessControl: LogDeliveryWrite
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       LifecycleConfiguration:
         Rules:
           - ExpirationInDays: 45
@@ -83,10 +79,6 @@ Resources:
             reason: only accessed by config, writes very frequently so will be costly
     Properties:
       AccessControl: Private
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
         BlockPublicPolicy: true
@@ -115,10 +107,6 @@ Resources:
   AmplifyStorageBucket:
     Type: "AWS::S3::Bucket"
     Properties:
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       CorsConfiguration:
         CorsRules:
           - AllowedHeaders:
@@ -209,10 +197,6 @@ Resources:
     Type: "AWS::S3::Bucket"
     Properties:
       AccessControl: Private
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       LifecycleConfiguration:
         Rules:
           - ExpirationInDays: 7
@@ -234,10 +218,6 @@ Resources:
     Type: "AWS::S3::Bucket"
     Properties:
       AccessControl: Private
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       LoggingConfiguration:
         DestinationBucketName: !Ref AccessLogsBucket
         LogFilePrefix: cost-and-usage-report-bucket/
@@ -253,10 +233,6 @@ Resources:
     Type: "AWS::S3::Bucket"
     Properties:
       AccessControl: Private
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       LoggingConfiguration:
         DestinationBucketName: !Ref AccessLogsBucket
         LogFilePrefix: discovery-bucket/
@@ -276,10 +252,6 @@ Resources:
           - id: W51
             reason: This bucket will get a policy attached to it from another template during deployment.
     Properties:
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
       CorsConfiguration:
         CorsRules:
           - AllowedHeaders:
